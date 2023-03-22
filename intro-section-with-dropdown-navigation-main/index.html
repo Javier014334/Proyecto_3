@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@500;700&display=swap" rel="stylesheet">
+  <title>Frontend Mentor | Intro section with dropdown navigation</title>
+</head>
+
+<body>
+
+  <nav>
+    <div class="logo">
+      <img src="images\logo.svg" alt="icon">
+    </div>
+    <img src="images\icon-menu.svg" class="boton-menu-abrir" id="boton-menu-abrir"></img>
+    <img src="images\icon-close-menu.svg" class="boton-menu-cerrar" id="boton-menu-cerrar"></img>
+
+    <div class="menu_principal" id="menu_principal">
+      <ul class="menu_horizontal">
+        <li class="menu">
+          <a href="">Features
+            <img class="arriba" src="images\icon-arrow-up.svg" alt="icon">
+          </a>
+          <ul class="menu_vertical">
+            <li class="menu">
+              <img src="images\icon-todo.svg" alt="icon">
+              Todo List
+            </li>
+            <li class="menu">
+              <img src="images\icon-calendar.svg" alt="icon">
+              Calendar
+            </li>
+            <li>
+              <img src="images\icon-reminders.svg" alt="icon">
+              Reminders
+            </li>
+            <li class="menu">
+              <img src="images\icon-planning.svg" alt="icon">
+              Planning
+            </li>
+          </ul>
+        </li>
+        <li class="menu">
+          <a href="">Company
+            <img class="arriba_2" src="images\icon-arrow-up.svg" alt="icon">
+          </a>
+          <ul class="menu_vertical_2">
+            <li>History</li>
+            <li>Our Team</li>
+            <li>Blog</li>
+          </ul>
+        </li>
+        <li>
+          <a href="">Careers</a>
+        </li>
+        <li class="menu">
+          <a href="">About</a>
+        </li>
+        <div class="botones" id="botones">
+          <button class="boton_1">Login</button>
+          <button class="boton_2">Register</button>
+        </div>
+      </ul>
+      
+    </div>
+    
+
+    <script>
+      function addEventListeners() {
+        var botonMenuAbrir = document.getElementById("boton-menu-abrir");
+        var botonMenuCerrar = document.getElementById("boton-menu-cerrar");
+        var menu = document.getElementById("menu_principal");
+        var botones = document.getElementById("botones");
+
+
+        botonMenuAbrir.addEventListener("click", function () {
+          menu.classList.add("abierto");
+          botones.classList.add("abierto");
+          botonMenuAbrir.style.display = "none";
+          botonMenuCerrar.style.display = "flex";
+        });
+
+        botonMenuCerrar.addEventListener("click", function () {
+          menu.classList.remove("abierto");
+          botones.classList.remove("abierto");
+          botonMenuCerrar.style.display = "none";
+          botonMenuAbrir.style.display = "block";
+        });
+
+      }
+
+      // Esperar a que los elementos existan en el DOM para añadir los eventos
+      window.addEventListener("load", function() {
+        addEventListeners();
+      });
+    </script>
+
+
+    
+    <script>
+      const menuVertical = document.querySelector('.menu_vertical');
+      const arrowImg = document.querySelector('.arriba');
+      const menuVertical2 = document.querySelector('.menu_vertical_2');
+      const arrowImg2 = document.querySelector('.arriba_2');
+      var botones = document.getElementById("botones");
+
+      menuVertical.addEventListener('mouseover', () => {
+        arrowImg.classList.add('rotate');
+        botones.classList.add("loco");
+
+      });
+
+      menuVertical.addEventListener('mouseout', () => {
+        arrowImg.classList.remove('rotate');
+      });
+
+      menuVertical2.addEventListener('mouseover', () => {
+        arrowImg2.classList.add('rotate');
+      });
+
+      menuVertical2.addEventListener('mouseout', () => {
+        arrowImg2.classList.remove('rotate');
+      });
+    </script>
+
+    
+
+    <!-- <div>
+      <img src="images\icon-menu.svg">
+      <img src="images\icon-close-menu.svg">
+    </div> -->
+
+  </nav>
+
+  <div class="contenido">
+    <div class="textos">
+      <h1>Make remote work</h1>
+      <p>Get your team in sync, no matter your location. Streamline processes, create team rituals, and watch
+        productivity soar.</p>
+      <button class="boton_3">Learn more</button>
+      <div class="logos">
+        <img src="images\client-databiz.svg" alt="icon">
+        <img src="images\client-audiophile.svg" alt="icon">
+        <img src="images\client-meet.svg" alt="icon">
+        <img src="images\client-maker.svg" alt="icon">
+      </div>
+    </div>
+
+    <div class="caja_imagen">
+      <picture>
+        <source media="(max-width: 375px)" srcset="images\image-hero-mobile.png" alt="image-hero-mobile">
+        <img class="imagen_1" src="images\image-hero-desktop.png" alt="image-hero-desktop">
+      </picture>
+    </div>
+
+  </div>
+
+</body>
+<!-- <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+    Coded by <a href="#">Your Name Here</a>.
+  </div> -->
+
+</html>
